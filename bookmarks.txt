@@ -1,0 +1,29 @@
+:title Dune
+:url https://www.imdb.com/title/tt1160419/
+:ts 2025-06-09 14:32:18
+:tags movie sci-fi epic
+:comment Denis Villeneuve's stunning adaptation of Herbert's masterpiece
+
+:title The Expanse
+:url https://www.imdb.com/title/tt3552222/
+:ts 2025-06-09 15:45:22
+:tags tv sci-fi drama
+:comment realistic space politics and physics in a colonized solar system
+
+:title Neuromancer
+:url https://www.goodreads.com/book/show/22328.Neuromancer
+:ts 2025-06-09 16:12:05
+:tags book sci-fi cyberpunk
+:comment William Gibson's groundbreaking novel that defined cyberpunk
+
+:title The Princess Bride
+:url https://www.imdb.com/title/tt0093779/
+:ts 2025-06-09 17:28:41
+:tags movie fantasy comedy
+:comment inconceivable adventure with sword fights and true love
+
+:title Sapiens: A Brief History of Humankind
+:url https://www.goodreads.com/book/show/23692271-sapiens
+:ts 2025-06-09 18:05:33
+:tags book non-fiction history
+:comment Yuval Noah Harari's fascinating take on how humans conquered the world
