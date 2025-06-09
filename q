@@ -20,4 +20,4 @@ set -euo pipefail
 # 4. list entries with tag 'book' but not with tag 'history'
 # ./q '/:tags.*\bbook\b/ && !/:tags.*\bhistory\b/'
 
-perl -00 -ne "print if $1" "${2:-bookmarks.txt}"
+perl -00 -ne "print if ${1:-true}" "${2:-bookmarks.txt}"
