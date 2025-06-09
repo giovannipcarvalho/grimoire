@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+# List a random bookmark.
+#
+# Usage:
+# ./lucky [file]
+#
+# Examples:
+# 1. get a random entry (defaults to bookmarks.txt)
+# ./lucky
+#
+# 2. get a random entry from a different file
+# ./lucky archive.txt
+#
+# 3. filter and get a random entry
+# ./q '/:tags.*\<book\>/' | ./lucky
+
+if [[ -n "$1" && -f "$1" ]]; then
+    input_file="$1"
+elif [[ ! -t 0 ]]; then
+    input_file="/dev/stdin"
+else
+    input_file="bookmarks.txt"
+fi
+
+awk -v RS= -v ORS='\n\n' -v seed="$RANDOM" 'BEGIN{srand(seed)} rand() < 1/NR {pick = $0} END {print pick}' "$input_file"
