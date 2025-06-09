@@ -16,12 +16,10 @@ set -eo pipefail
 # 3. filter and get a random entry
 # ./q '/:tags.*\bbook\b/' | ./lucky
 
-if [[ -n "$1" && -f "$1" ]]; then
-    input_file="$1"
-elif [[ ! -t 0 ]]; then
-    input_file="/dev/stdin"
-else
-    input_file="bookmarks.txt"
+file="${2:-bookmarks.txt}"
+
+if [ -t 0 ]; then
+    exec < "$file"
 fi
 
-awk -v RS= -v ORS='\n\n' -v seed="$RANDOM" 'BEGIN{srand(seed)} rand() < 1/NR {pick = $0} END {print pick}' "$input_file"
+awk -v RS= -v ORS='\n\n' -v seed="$RANDOM" 'BEGIN{srand(seed)} rand() < 1/NR {pick = $0} END {print pick}'

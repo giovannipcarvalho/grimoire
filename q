@@ -24,10 +24,9 @@ set -euo pipefail
 # ./q /foo/ | ./q /bar/
 
 pattern="${1:-true}"
+file="${2:-bookmarks.txt}"
 
 if [ -t 0 ]; then
-    # stdin is a terminal, so fallback to file
-    file="${2:-bookmarks.txt}"
     exec < "$file"
 fi
 
