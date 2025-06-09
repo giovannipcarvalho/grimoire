@@ -19,5 +19,17 @@ set -euo pipefail
 #
 # 4. list entries with tag 'book' but not with tag 'history'
 # ./q '/:tags.*\bbook\b/ && !/:tags.*\bhistory\b/'
+#
+# 5. piping through itself
+# ./q /foo/ | ./q /bar/
 
-perl -00 -ne "print if ${1:-true}" "${2:-bookmarks.txt}"
+pattern="${1:-true}"
+
+if [ -t 0 ]; then
+    # stdin is a terminal, so fallback to file
+    file="${2:-bookmarks.txt}"
+    exec < "$file"
+fi
+
+# stdin is piped in, just read from it
+perl -00 -ne "print if $pattern"
