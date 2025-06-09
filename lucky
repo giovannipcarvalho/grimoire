@@ -14,7 +14,7 @@ set -eo pipefail
 # ./lucky archive.txt
 #
 # 3. filter and get a random entry
-# ./q '/:tags.*\<book\>/' | ./lucky
+# ./q '/:tags.*\bbook\b/' | ./lucky
 
 if [[ -n "$1" && -f "$1" ]]; then
     input_file="$1"

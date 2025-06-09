@@ -15,9 +15,9 @@ set -euo pipefail
 # ./q '/foo/' archive.txt
 #
 # 3. list entries with tag 'book'
-# ./q '/:tags.*\<book\>/'
+# ./q '/:tags.*\bbook\b/'
 #
-# 4. list entries with tag 'book' but not with tag 'thriller'
-# ./q '/:tags.*\<book\>/ && !/:tags.*\<thriller\>/'
+# 4. list entries with tag 'book' but not with tag 'history'
+# ./q '/:tags.*\bbook\b/ && !/:tags.*\bhistory\b/'
 
-awk -v RS= -v ORS='\n\n' "$1" "${2:-bookmarks.txt}"
+perl -00 -ne "print if $1" "${2:-bookmarks.txt}"

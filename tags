@@ -14,7 +14,7 @@ set -eo pipefail
 # ./tags archive.txt
 #
 # 3. filter and list tags
-# ./q '/:tags.*\<book\>/' | ./tags
+# ./q '/:tags.*\bbook\b/' | ./tags
 
 if [[ -n "$1" && -f "$1" ]]; then
     input_file="$1"
