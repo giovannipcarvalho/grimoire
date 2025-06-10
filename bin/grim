@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+arg="${1:-}"
+shift || true
+
+file="${1:-bookmarks.txt}"
+
+if [ -t 0 ]; then
+    exec < "$file"
+fi
+
+case "$arg" in
+    luck)
+        awk -v RS= -v ORS='\n\n' -v seed="$RANDOM" 'BEGIN{srand(seed)} rand() < 1/NR {pick = $0} END {print pick}'
+        ;;
+    tags)
+        awk '/^:tags / {$1=""; print}' | xargs -n1 | sort | uniq -c | sort -rn
+        ;;
+    *)
+        perl -00 -ne "print if ${arg:-true}"
+        ;;
+esac
