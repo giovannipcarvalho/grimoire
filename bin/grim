@@ -17,6 +17,9 @@ case "$arg" in
     tags)
         awk '/^:tags / {$1=""; print}' | xargs -n1 | sort | uniq -c | sort -rn
         ;;
+    count)
+        perl -00 -ne '$count++; END { print "$count\n" }'
+        ;;
     *)
         perl -00 -ne "print if ${arg:-true}"
         ;;
