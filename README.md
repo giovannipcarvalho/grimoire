@@ -13,6 +13,26 @@ Plain text bookmarks.
 Alternatively, `grim` reads from `stdin` if used in a pipe.
 
 
+## Installation
+
+```bash
+# clone into ~/.local/src and symlink to ~/.local/bin/grim
+mkdir -p ~/.local/src && cd $_
+git clone https://github.com/giovannipcarvalho/grimoire
+mkdir -p ~/.local/bin && ln -s ~/.local/src/grimoire/bin/grim $_
+```
+
+Make sure it is locatable:
+```console
+$ which grim
+/home/giovanni/.local/bin/grim
+```
+
+You may need to add `~/.local/bin` to your `PATH`,
+though it [should be there by default](https://sources.debian.org/src/bash/5.2.15-2/debian/skel.profile/#L24-L27)
+if you're using bash on Debian and the path exists.
+
+
 ## Usage
 
 ```bash
