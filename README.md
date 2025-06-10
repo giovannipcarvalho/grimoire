@@ -8,6 +8,7 @@ Plain text bookmarks.
 - `grim /pattern/`: find entries
 - `grim luck`: fetch a random entry
 - `grim tags`: list tags and occurrences
+- `grim count`: count number of entries
 
 `grim` accepts an optional file, or defaults to `~/bookmarks.txt`.
 Alternatively, `grim` reads from `stdin` if used in a pipe.
@@ -80,6 +81,15 @@ $ grim tags archive.txt
 # filter entries and list tags
 $ grim '/:tags.*\bbook\b/' | grim tags
 
+
+# grim count
+# ==========
+
+# count entries
+$ grim count
+
+# filter entries, then count
+$ grim /foo/ | grim count
 ```
 
 # TODO
