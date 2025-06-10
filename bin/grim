@@ -4,7 +4,7 @@ set -euo pipefail
 arg="${1:-}"
 shift || true
 
-file="${1:-bookmarks.txt}"
+file="${1:-$HOME/bookmarks.txt}"
 
 if [ -t 0 ]; then
     exec < "$file"

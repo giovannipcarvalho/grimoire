@@ -9,7 +9,7 @@ Plain text bookmarks.
 - `grim luck`: fetch a random entry
 - `grim tags`: list tags and occurrences
 
-`grim` accepts an optional file, or defaults to `bookmarks.txt`.
+`grim` accepts an optional file, or defaults to `~/bookmarks.txt`.
 Alternatively, `grim` reads from `stdin` if used in a pipe.
 
 
@@ -19,7 +19,7 @@ Alternatively, `grim` reads from `stdin` if used in a pipe.
 # grim /pattern/
 # ==============
 
-# list entries matching 'foo' (defaults to bookmarks.txt)
+# list entries matching 'foo' (defaults to ~/bookmarks.txt)
 $ grim /foo/
 
 # list entries matching 'foo' in a different file
