@@ -20,6 +20,9 @@ case "$arg" in
     count)
         perl -00 -ne '$count++; END { print "$count\n" }'
         ;;
+    unread)
+        exec "$0" '!/:tags.*\barchive\b/'
+        ;;
     *)
         perl -00 -ne "print if ${arg:-true}"
         ;;

@@ -9,6 +9,7 @@ Plain text bookmarks.
 - `grim luck`: fetch a random entry
 - `grim tags`: list tags and occurrences
 - `grim count`: count number of entries
+- `grim unread`: list unread entries
 
 `grim` accepts an optional file, or defaults to `~/bookmarks.txt`.
 Alternatively, `grim` reads from `stdin` if used in a pipe.
@@ -114,6 +115,16 @@ $ grim count
 
 # filter entries, then count
 $ grim /foo/ | grim count
+
+
+# grim unread
+# ===========
+
+# list unread entries
+$ grim unread
+
+# pick random unread entry
+$ grim unread | grim luck
 ```
 
 # TODO
