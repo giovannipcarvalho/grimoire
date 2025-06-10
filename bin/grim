@@ -15,7 +15,7 @@ case "$arg" in
         awk -v RS= -v ORS='\n\n' -v seed="$RANDOM" 'BEGIN{srand(seed)} rand() < 1/NR {pick = $0} END {print pick}'
         ;;
     tags)
-        awk '/^:tags/ { print }' | sed 's/:tags //' | tr ' ' '\n' | sort | uniq -c | sort -rn
+        grep '^:tags ' | sed 's/:tags //' | tr ' ' '\n' | sort | uniq -c | sort -rn
         ;;
     count)
         perl -00 -ne '$count++; END { print "$count\n" }'
