@@ -14,6 +14,30 @@ Plain text bookmarks.
 Alternatively, `grim` reads from `stdin` if used in a pipe.
 
 
+## File format
+
+Whatever you want, paragraph-separated.
+
+```
+:url https://example.com
+
+:url https://google.com
+```
+
+The attributes preceding the value or the `:` preceding the attribute name are entirely optional, but make grepping easier.
+
+Adding more attributes as metadata is also probably a good idea.
+
+For instance, the example file [./bookmarks.txt](./bookmarks.txt) includes:
+- `:title`
+- `:url`
+- `:ts` (timestamp)
+- `:tags`
+- `:comment`
+
+The commands in the [Usage](#usage) section assume the structure above.
+
+
 ## Installation
 
 ```bash
