@@ -61,72 +61,143 @@ if you're using bash on Debian and the path exists.
 
 ## Usage
 
-```bash
-# grim /pattern/
-# ==============
+### Searching for regex `/pattern/`s
 
-# list entries matching 'foo' (defaults to ~/bookmarks.txt)
+#### Find entries matching a pattern
+
+```console
 $ grim /foo/
+```
 
-# list entries matching 'foo' in a different file
+#### Search a specific file
+
+```console
 $ grim /foo/ archive.txt
+```
 
-# list entries with tag 'book'
+#### Find entries tagged with `book`
+
+```console
 $ grim '/:tags.*\bbook\b/'
+```
 
-# list entries with tag 'book' but not with tag 'history'
+#### Find entries tagged with `book`, but not tagged with `history`
+
+```console
 $ grim '/:tags.*\bbook\b/ && !/:tags.*\bhistory\b/'
+:title Neuromancer
+:url https://www.goodreads.com/book/show/22328.Neuromancer
+:ts 2025-06-09 16:12:05
+:tags book sci-fi cyberpunk
+:comment William Gibson's groundbreaking novel that defined cyberpunk
+```
 
-# piping through itself
-$ grim /foo/ | grim /bar/
+#### Piping `grim` through itself
 
+```console
+$ grim /sci-fi/ | grim /tv/
+:title The Expanse
+:url https://www.imdb.com/title/tt3552222/
+:ts 2025-06-09 15:45:22
+:tags tv sci-fi drama
+:comment realistic space politics and physics in a colonized solar system
+```
 
-# grim luck
-# =========
+### Random picks
 
-# get a random entry
+#### Get a random entry
+
+```console
 $ grim luck
+```
 
-# get random entry from a different file
+#### Get a random entry from a specific file
+
+```console
 $ grim luck archive.txt
+```
 
-# filter and get a random entry
+#### Filtered random pick
+
+```console
 $ grim '/:tags.*\bbook\b/' | grim luck
+```
 
+### Tags
 
-# grim tags
-# =========
+#### List tags and their counts
 
-# list tags and counts
+```console
 $ grim tags
+      3 sci-fi
+      2 movie
+      2 book
+      1 tv
+      1 non-fiction
+      1 history
+      1 fantasy
+      1 epic
+      1 drama
+      1 cyberpunk
+      1 comedy
+```
 
-# list tags in a different file
+#### List tags from a specific file
+
+```console
 $ grim tags archive.txt
+```
 
-# filter entries and list tags
+#### Filter entries and list tags
+
+```console
 $ grim '/:tags.*\bbook\b/' | grim tags
+      2 book
+      1 sci-fi
+      1 non-fiction
+      1 history
+      1 cyberpunk
+```
 
+### Count
 
-# grim count
-# ==========
+#### Count total entries
 
-# count entries
+```console
 $ grim count
+5
+```
 
-# filter entries, then count
-$ grim /foo/ | grim count
+#### Filter and count entries
 
+```console
+$ grim /movie/ | grim count
+2
+```
 
-# grim unread
-# ===========
+### Unread
 
-# list unread entries
+#### List unread entries
+
+By default, entries not tagged with `archive` are considered unread.
+
+```console
 $ grim unread
+```
 
-# pick random unread entry
+#### Count unread entries
+
+```console
+$ grim unread | grim count
+5
+```
+
+#### Pick a random unread entry
+
+```console
 $ grim unread | grim luck
 ```
 
-# TODO
+## TODO
 
 - [ ] `grim add` command
