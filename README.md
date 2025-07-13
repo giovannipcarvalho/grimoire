@@ -198,6 +198,20 @@ $ grim unread | grim count
 $ grim unread | grim luck
 ```
 
+## Bookmarklet
+
+To easily copy the current page title and URL for pasting in your bookmark file.
+
+Create a new bookmark and name it `grim-copy`, with the following URL:
+
+```javascript
+javascript:(() => {
+    const ts = new Date().toISOString().replace('T', ' ').slice(0, 19);
+    const out = `:title ${document.title}\n:url ${location.href}\n:ts ${ts}`;
+    navigator.clipboard.writeText(out);
+})();
+```
+
 ## TODO
 
 - [ ] `grim add` command
