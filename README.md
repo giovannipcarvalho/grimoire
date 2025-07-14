@@ -207,7 +207,7 @@ Create a new bookmark and name it `grim-copy`, with the following URL:
 ```javascript
 javascript:(() => {
     const ts = new Date().toISOString().replace('T', ' ').slice(0, 19);
-    const out = `:title ${document.title}\n:url ${location.href}\n:ts ${ts}`;
+    const out = `:title ${document.title}\n:url ${location.href}\n:ts ${ts}\n:tags\n:comment`;
     navigator.clipboard.writeText(out);
 })();
 ```
